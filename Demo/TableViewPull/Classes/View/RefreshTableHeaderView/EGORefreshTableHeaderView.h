@@ -26,6 +26,9 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "ClockView.h"
+
+@class ClockView;
 
 typedef enum{
 	EGOOPullRefreshPulling = 0,
@@ -42,7 +45,7 @@ typedef enum{
 	UILabel *_lastUpdatedLabel;
 	UILabel *_statusLabel;
 	CALayer *_arrowImage;
-	UIActivityIndicatorView *_activityView;
+	ClockView *_activityView;
 	
 
 }
@@ -52,7 +55,7 @@ typedef enum{
 - (void)refreshLastUpdatedDate;
 - (void)egoRefreshScrollViewDidScroll:(UIScrollView *)scrollView;
 - (void)egoRefreshScrollViewDidEndDragging:(UIScrollView *)scrollView;
-- (void)egoRefreshScrollViewDataSourceDidFinishedLoading:(UIScrollView *)scrollView;
+- (void)egoRefreshScrollViewDataSourceDidFinishedLoading:(UIScrollView *)scrollView animated:(BOOL)shouldAnimate;
 
 @end
 @protocol EGORefreshTableHeaderDelegate

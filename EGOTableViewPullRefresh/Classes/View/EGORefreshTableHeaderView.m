@@ -84,11 +84,15 @@
 		[[self layer] addSublayer:layer];
 		_arrowImage=layer;
 		
-		UIActivityIndicatorView *view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-		view.frame = CGRectMake(25.0f, frame.size.height - 38.0f, 20.0f, 20.0f);
-		[self addSubview:view];
-		_activityView = view;
-		[view release];
+//		UIActivityIndicatorView *view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//        view.frame = CGRectMake(25.0f, frame.size.height - 38.0f, 20.0f, 20.0f);
+//		[view release];
+//        
+//        UIView *clockView = [[UIView alloc] initWithFrame:CGRectMake(25.0f, frame.size.height - 38.0f, 20.0f, 20.0f)];
+//        UIImage *clock = [UIImage imageNamed:@"clockloading"];
+//        [clockView addSubview:clock];
+//        [self addSubview:clockView];
+//        _activityView = clockView;
 		
 		
 		[self setState:EGOOPullRefreshNormal];
@@ -234,12 +238,13 @@
 	
 }
 
-- (void)egoRefreshScrollViewDataSourceDidFinishedLoading:(UIScrollView *)scrollView {	
-	
-	[UIView beginAnimations:nil context:NULL];
-	[UIView setAnimationDuration:.3];
-	[scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f)];
-	[UIView commitAnimations];
+- (void)egoRefreshScrollViewDataSourceDidFinishedLoading:(UIScrollView *)scrollView animated:(BOOL)shouldAnimate {	
+	if (shouldAnimate) {
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:.3];
+        [scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f)];
+        [UIView commitAnimations];
+    }
 	
 	[self setState:EGOOPullRefreshNormal];
 
