@@ -94,18 +94,18 @@
 //        _activityView = view;
 //        [view release];    
         
-        ClockView *clockView = [[ClockView alloc] initWithFrame:CGRectMake(25.0f, frame.size.height - 38.0f, 33.0f, 33.0f)];
+        ClockView *clockView = [[ClockView alloc] initWithFrame:CGRectMake(25.0f, frame.size.height - 38.0f, 33.0f, 33.0f) Wings:NO];
         CALayer *hourHandLayer = [CALayer layer];
         hourHandLayer.contents = (id)[UIImage imageNamed:@"clockhourhand"].CGImage;
         hourHandLayer.anchorPoint = CGPointMake(1.0, 0.5);
-        hourHandLayer.frame = CGRectMake(11.5f, 15.5f, 5.0f, 2.0f);
+        hourHandLayer.frame = CGRectMake((clockView.frame.size.width/2) - 5.0, 15.5f, 5.0f, 2.0f);
         clockView.hourHandLayer = hourHandLayer;
         [clockView.layer addSublayer:hourHandLayer];
         
         CALayer *minuteHandLayer = [CALayer layer];
         minuteHandLayer.contents = (id)[UIImage imageNamed:@"clockminutehand"].CGImage;
         minuteHandLayer.anchorPoint = CGPointMake(0.0, 0.5);
-        minuteHandLayer.frame = CGRectMake(16.5f, 15.5f, 10.0f, 2.0f);
+        minuteHandLayer.frame = CGRectMake(clockView.frame.size.width/2, 15.5f, 10.0f, 2.0f);
         clockView.minuteHandLayer = minuteHandLayer;
         [clockView.layer addSublayer:minuteHandLayer];
         
