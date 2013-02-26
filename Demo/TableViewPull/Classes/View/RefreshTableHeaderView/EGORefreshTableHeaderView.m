@@ -246,7 +246,7 @@
 		_loading = [_delegate egoRefreshTableHeaderDataSourceIsLoading:self];
 	}
 	
-	if (scrollView.contentOffset.y <= - 65.0f && !_loading && [(AppDelegate *)[[UIApplication sharedApplication] delegate] connectedToNetwork]) {
+	if ((scrollView.contentOffset.y <= - 65.0f) && !_loading && [((AppDelegate *)[[UIApplication sharedApplication] delegate]) connectedToNetwork]) {
 		
 		if ([_delegate respondsToSelector:@selector(egoRefreshTableHeaderDidTriggerRefresh:)]) {
 			[_delegate egoRefreshTableHeaderDidTriggerRefresh:self];
