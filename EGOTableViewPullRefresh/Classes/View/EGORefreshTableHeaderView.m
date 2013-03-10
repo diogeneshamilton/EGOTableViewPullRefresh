@@ -87,13 +87,7 @@
 		
 		[[self layer] addSublayer:layer];
 		_arrowImage=layer;
-		
-        //		UIActivityIndicatorView *view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        //        view.frame = CGRectMake(25.0f, frame.size.height - 38.0f, 20.0f, 20.0f);
-        //        [self addSubview:view];
-        //        _activityView = view;
-        //        [view release];
-        
+		        
         ClockView *clockView = [[ClockView alloc] initWithFrame:CGRectMake(25.0f, frame.size.height - 38.0f, 33.0f, 33.0f) Wings:NO];
         CALayer *hourHandLayer = [CALayer layer];
         hourHandLayer.contents = (id)[UIImage imageNamed:@"clockhourhand"].CGImage;
