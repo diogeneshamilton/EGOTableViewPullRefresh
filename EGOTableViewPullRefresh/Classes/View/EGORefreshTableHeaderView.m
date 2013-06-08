@@ -178,14 +178,12 @@
             
 			break;
 		case EGOOPullRefreshLoading:
-			
-			_statusLabel.text = NSLocalizedString(@"Loading...", @"Loading Status");
-			[_activityView startAnimating];
-			[CATransaction begin];
-			[CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
-			_arrowImage.hidden = YES;
-			[CATransaction commit];
-			
+                _statusLabel.text = NSLocalizedString(@"Loading...", @"Loading Status");
+                [_activityView startAnimating];
+                [CATransaction begin];
+                [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+                _arrowImage.hidden = YES;
+                [CATransaction commit];
 			break;
 		default:
 			break;
@@ -240,7 +238,7 @@
 		_loading = [_delegate egoRefreshTableHeaderDataSourceIsLoading:self];
 	}
 	
-	if ((scrollView.contentOffset.y <= - 65.0f) && !_loading && ((AppDelegate *)[[UIApplication sharedApplication] delegate])) {
+	if ((scrollView.contentOffset.y <= - 65.0f) && !_loading && [(AppDelegate *)[[UIApplication sharedApplication] delegate] performSelector:@selector(connectedToNetwork) withObject:nil]) {
 		
 		if ([_delegate respondsToSelector:@selector(egoRefreshTableHeaderDidTriggerRefresh:)]) {
 			[_delegate egoRefreshTableHeaderDidTriggerRefresh:self];
